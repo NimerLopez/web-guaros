@@ -12,467 +12,7 @@
         <!-- Font Awesome -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
         <!-- Custom CSS -->
-        <style>
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: var(--dark-color);
-            background-color: var(--light-color);
-        }
-        
-        .btn-primary {
-            background-color: var(--primary-color);
-            border-color: var(--primary-color);
-        }
-        
-        .btn-primary:hover {
-            background-color: #003d7a;
-            border-color: #003d7a;
-        }
-        
-        .btn-secondary {
-            background-color: var(--secondary-color);
-            border-color: var(--secondary-color);
-        }
-        
-        .btn-secondary:hover {
-            background-color: #cc0000;
-            border-color: #cc0000;
-        }
-        
-        .hero-section {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1506877339221-ede41280f9e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 150px 0;
-            text-align: center;
-            position: relative;
-        }
-        
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .product-card {
-            border: none;
-            transition: transform 0.3s;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        
-        .product-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .product-img {
-            height: 300px;
-            object-fit: cover;
-        }
-        
-        .about-section {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 80px 0;
-        }
-        
-        .testimonial-section {
-            background-color: var(--light-color);
-            padding: 80px 0;
-        }
-        
-        .testimonial-card {
-            background-color: white;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            height: 100%;
-        }
-        
-        .footer {
-            background-color: var(--dark-color);
-            color: white;
-            padding: 50px 0 20px;
-        }
-        
-        .social-icon {
-            font-size: 24px;
-            margin-right: 15px;
-            color: white;
-        }
-        
-        .age-verification {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-        }
-        
-        .age-verification-content {
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            text-align: center;
-            max-width: 500px;
-        }
-        
-        .cart-icon {
-            position: relative;
-        }
-        
-        .cart-count {
-            position: absolute;
-            top: -10px;
-            right: -10px;
-            background-color: var(--secondary-color);
-            color: white;
-            border-radius: 50%;
-            width: 20px;
-            height: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 12px;
-        }
-        
-        .filter-btn.active {
-            background-color: var(--primary-color);
-            color: white;
-        }
-        /* Estilos generales */
-:root {
-    --primary-color: #8b0000; /* Rojo oscuro para tema de licor */
-    --secondary-color: #f8f1e5; /* Beige claro para contraste */
-    --accent-color: #ffb700; /* Dorado para acentos */
-    --dark-color: #2c1a1d; /* Marrón oscuro */
-    --light-color: #ffffff;
-    --text-color: #333333;
-    --transition: all 0.3s ease;
-}
-
-body {
-    font-family: 'Poppins', sans-serif;
-    color: var(--text-color);
-}
-
-/* Barra superior */
-.top-bar {
-    background-color: var(--dark-color);
-    color: var(--light-color);
-    padding: 8px 0;
-    font-size: 14px;
-}
-
-.top-info {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.contact-info span {
-    margin-right: 20px;
-}
-
-.contact-info i, .social-icons i {
-    margin-right: 5px;
-    color: var(--accent-color);
-}
-
-.social-icons a {
-    color: var(--light-color);
-    margin-left: 15px;
-    transition: var(--transition);
-}
-
-.social-icons a:hover {
-    color: var(--accent-color);
-}
-
-/* Navbar principal */
-.navbar-custom {
-    background-color: var(--primary-color);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    padding: 10px 0;
-}
-
-.navbar-brand img {
-    transition: var(--transition);
-}
-
-.navbar-brand img:hover {
-    transform: scale(1.05);
-}
-
-.navbar-toggler {
-    border: 2px solid var(--light-color);
-}
-
-.navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-}
-
-/* Enlaces de navegación */
-.navbar-nav .nav-link {
-    color: var(--light-color);
-    font-weight: 500;
-    padding: 10px 15px;
-    position: relative;
-    transition: var(--transition);
-}
-
-.navbar-nav .nav-link i {
-    margin-right: 5px;
-    font-size: 16px;
-}
-
-.navbar-nav .nav-link:hover, 
-.navbar-nav .nav-link.active {
-    color: var(--accent-color);
-}
-
-.navbar-nav .nav-link::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    background-color: var(--accent-color);
-    bottom: 5px;
-    left: 50%;
-    transform: translateX(-50%);
-    transition: var(--transition);
-}
-
-.navbar-nav .nav-link:hover::after,
-.navbar-nav .nav-link.active::after {
-    width: 70%;
-}
-
-/* Dropdown */
-.dropdown-menu {
-    background-color: var(--dark-color);
-    border: none;
-    border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    padding: 10px;
-    margin-top: 10px;
-}
-
-.dropdown-item {
-    color: var(--light-color);
-    padding: 8px 15px;
-    transition: var(--transition);
-    border-radius: 5px;
-}
-
-.dropdown-item:hover {
-    background-color: var(--primary-color);
-    color: var(--accent-color);
-}
-
-.dropdown-divider {
-    border-color: rgba(255, 255, 255, 0.1);
-}
-
-/* Buscador */
-.search-box {
-    position: relative;
-    width: 200px;
-}
-
-.search-input {
-    width: 100%;
-    padding: 8px 35px 8px 15px;
-    border-radius: 20px;
-    border: none;
-    background-color: rgba(255, 255, 255, 0.2);
-    color: var(--light-color);
-    transition: var(--transition);
-}
-
-.search-input::placeholder {
-    color: rgba(255, 255, 255, 0.7);
-}
-
-.search-input:focus {
-    outline: none;
-    background-color: rgba(255, 255, 255, 0.3);
-    box-shadow: 0 0 0 2px var(--accent-color);
-}
-
-.search-btn {
-    position: absolute;
-    right: 5px;
-    top: 50%;
-    transform: translateY(-50%);
-    background: transparent;
-    border: none;
-    color: var(--light-color);
-    cursor: pointer;
-}
-
-/* Carrito */
-.cart-icon {
-    position: relative;
-    cursor: pointer;
-    font-size: 20px;
-    color: var(--light-color);
-    transition: var(--transition);
-}
-
-.cart-icon:hover {
-    color: var(--accent-color);
-}
-
-.cart-count {
-    position: absolute;
-    top: -8px;
-    right: -8px;
-    background-color: var(--accent-color);
-    color: var(--dark-color);
-    font-size: 12px;
-    font-weight: bold;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: var(--transition);
-}
-
-.btn-cart {
-    background-color: var(--accent-color);
-    color: var(--dark-color);
-    border: none;
-    border-radius: 20px;
-    padding: 8px 15px;
-    font-weight: 600;
-    transition: var(--transition);
-}
-
-.btn-cart:hover {
-    background-color: var(--light-color);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-/* Modal del carrito */
-.modal-content {
-    border-radius: 10px;
-    border: none;
-    overflow: hidden;
-}
-
-.modal-header {
-    background-color: var(--primary-color);
-    color: var(--light-color);
-    border-bottom: none;
-}
-
-.modal-title i {
-    margin-right: 10px;
-    color: var(--accent-color);
-}
-
-.cart-items {
-    max-height: 300px;
-    overflow-y: auto;
-}
-
-.empty-cart-message {
-    padding: 30px;
-    color: #888;
-    font-style: italic;
-}
-
-.cart-total {
-    font-size: 18px;
-    font-weight: 600;
-    margin-right: auto;
-}
-
-.cart-total span:last-child {
-    color: var(--primary-color);
-}
-
-.modal-footer {
-    border-top: 1px solid #eee;
-}
-
-.modal-footer .btn-primary {
-    background-color: var(--primary-color);
-    border: none;
-}
-
-.modal-footer .btn-primary:hover {
-    background-color: var(--dark-color);
-}
-
-/* Responsive */
-@media (max-width: 992px) {
-    .navbar-collapse {
-        background-color: var(--primary-color);
-        padding: 15px;
-        border-radius: 8px;
-        margin-top: 10px;
-    }
-    
-    .search-box {
-        width: 100%;
-        margin: 10px 0;
-    }
-    
-    .navbar-nav .nav-link::after {
-        display: none;
-    }
-    
-    .navbar-nav .nav-link {
-        padding: 12px 15px;
-        border-radius: 5px;
-    }
-    
-    .navbar-nav .nav-link:hover {
-        background-color: rgba(255, 255, 255, 0.1);
-    }
-    
-    .dropdown-menu {
-        background-color: rgba(0, 0, 0, 0.2);
-        margin-top: 0;
-    }
-}
-
-@media (max-width: 576px) {
-    .top-info {
-        flex-direction: column;
-        gap: 5px;
-    }
-    
-    .contact-info, .social-icons {
-        text-align: center;
-    }
-    
-    .contact-info span {
-        display: block;
-        margin: 5px 0;
-    }
-    
-    .cart-icon {
-        margin-right: 10px;
-    }
-    
-    .btn-cart {
-        padding: 6px 12px;
-        font-size: 14px;
-    }
-}
-    </style>
+        <link rel="stylesheet" href="{{ asset('assets/css/site.css') }}">
     </head>
     <body>
     <div class="age-verification" id="ageVerification">
@@ -502,8 +42,7 @@ body {
                 </div>
             </div>
         </div>
-    </div>
-    
+    </div> 
     <!-- Navbar principal -->
     <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
         <div class="container">
@@ -525,26 +64,26 @@ body {
                             <i class="fas fa-wine-bottle"></i> Productos
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="productosDropdown">
-                            <li><a class="dropdown-item" href="#guaro">Guaro Tradicional</a></li>
-                            <li><a class="dropdown-item" href="#chiliguaro">Chiliguaro</a></li>
-                            <li><a class="dropdown-item" href="#licores">Licores Artesanales</a></li>
-                            <li><hr class="dropdown-divider"></li>
+                            @isset($categories)
+                                @foreach($categories as $category)
+                                    <li><a class="dropdown-item" href="#{{ $category->slug }}">{{ $category->name }}</a></li>
+                                @endforeach
+        
+                                @if(count($categories) > 0)
+                                    <li><hr class="dropdown-divider"></li>
+                                @endif
+                            @endisset
                             <li><a class="dropdown-item" href="#todos">Ver Todos</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#nosotros">
-                            <i class="fas fa-users"></i> Nosotros
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#testimonios">
-                            <i class="fas fa-comment-dots"></i> Testimonios
-                        </a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="#contacto">
                             <i class="fas fa-envelope"></i> Contacto
+                        </a>
+                    </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="{{ route('seguridad.index') }}">
+                            <i class="fas fa-sign-in-alt"></i> Login
                         </a>
                     </li>
                 </ul>
@@ -569,42 +108,9 @@ body {
             {{ $slot }}
         </main>
            <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 mb-4 mb-md-0">
-                    <h5>Guaro Tico</h5>
-                    <p>El auténtico guaro costarricense desde 1985.</p>
-                    <div class="mt-3">
-                        <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4 mb-md-0">
-                    <h5>Enlaces Rápidos</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#" class="text-white">Inicio</a></li>
-                        <li><a href="#productos" class="text-white">Productos</a></li>
-                        <li><a href="#nosotros" class="text-white">Nosotros</a></li>
-                        <li><a href="#testimonios" class="text-white">Testimonios</a></li>
-                        <li><a href="#contacto" class="text-white">Contacto</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-4">
-                    <h5>Horario</h5>
-                    <p>Lunes a Viernes: 9:00 AM - 6:00 PM<br>
-                    Sábados: 10:00 AM - 3:00 PM<br>
-                    Domingos: Cerrado</p>
-                    <p class="mt-3">
-                        <small>El consumo excesivo de alcohol es perjudicial para la salud. Prohibida la venta a menores de edad.</small>
-                    </p>
-                </div>
-            </div>
-            <hr class="mt-4 bg-light">
-            <div class="text-center">
-                <p>&copy; 2023 Guaro Tico. Todos los derechos reservados.</p>
-            </div>
+    <footer class="footer py-3 text-white" style="background-color: #8b0000;">
+        <div class="container text-center">
+            <small>&copy; 2023 Guaro Tico. Todos los derechos reservados.</small>
         </div>
     </footer>
 
@@ -925,5 +431,80 @@ body {
                 }, 3000);
             });
         });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    // Elementos del DOM
+    const searchInput = document.querySelector('.search-input');
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const productItems = document.querySelectorAll('.product-item');
+    
+    // Normalizar texto para búsqueda (ignorar tildes y mayúsculas)
+    function normalizeText(text) {
+        return text.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+    }
+    
+    // Función para filtrar productos
+    function filterProducts() {
+        const searchTerm = normalizeText(searchInput.value);
+        const activeFilter = document.querySelector('.filter-btn.active')?.dataset.filter || 'all';
+        
+        productItems.forEach(item => {
+            const productName = normalizeText(item.querySelector('.card-title').textContent);
+            const productDesc = normalizeText(item.querySelector('.card-text').textContent);
+            const productCategory = item.dataset.category;
+            
+            // Verificar coincidencia
+            const matchesSearch = searchTerm === '' || 
+                               productName.includes(searchTerm) || 
+                               productDesc.includes(searchTerm);
+            
+            const matchesCategory = activeFilter === 'all' || 
+                                  productCategory === activeFilter;
+            
+            // Mostrar u ocultar
+            item.style.display = (matchesSearch && matchesCategory) ? 'block' : 'none';
+        });
+    }
+    
+    // Evento para botones de categoría
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            filterProducts();
+            
+            // Actualizar URL (opcional)
+            const url = new URL(window.location);
+            url.searchParams.set('category', this.dataset.filter);
+            history.pushState({}, '', url);
+        });
+    });
+    
+    // Eventos para búsqueda
+    searchInput.addEventListener('input', filterProducts); // Búsqueda en tiempo real
+    searchInput.addEventListener('keyup', function(e) {
+        if (e.key === 'Enter') filterProducts();
+    });
+    
+    // Cargar filtros desde URL al inicio
+    const urlParams = new URLSearchParams(window.location.search);
+    const categoryParam = urlParams.get('category');
+    const searchParam = urlParams.get('search');
+    
+    if (categoryParam) {
+        const correspondingBtn = document.querySelector(`.filter-btn[data-filter="${categoryParam}"]`);
+        if (correspondingBtn) {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            correspondingBtn.classList.add('active');
+        }
+    }
+    
+    if (searchParam) {
+        searchInput.value = searchParam;
+    }
+    
+    filterProducts(); // Aplicar filtros iniciales
+});
     </script>
 </html>

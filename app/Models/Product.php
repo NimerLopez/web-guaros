@@ -13,7 +13,8 @@ class Product extends Model
         'description',
         'price',
         'image_url',
-        'category'
+        'category_id',
+        'category',
     ];
 
     /**

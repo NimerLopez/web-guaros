@@ -12,15 +12,17 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('products', function (Blueprint $table) {
-            $table->id();  // Columna autoincremental 'id'
-            $table->string('name');  // Nombre del producto
-            $table->text('description');  // Descripción larga
-            $table->decimal('price', 10, 2);  // Precio con 10 dígitos y 2 decimales
-            $table->string('image_url');  // URL de la imagen
-            $table->string('category');  // Categoría (premium, estándar, etc.)
-            $table->boolean('is_featured')->default(false);  // ¿Producto destacado?
-            $table->integer('stock')->default(0);  // Cantidad en inventario
-            $table->timestamps();  // created_at y updated_at automáticos
+            $table->id();
+            $table->string('name');
+            $table->text('description');
+            $table->decimal('price', 10, 2);
+            $table->string('image_url');
+            $table->unsignedBigInteger('category_id');  // FK a la tabla categorías
+            $table->boolean('is_featured')->default(false);
+            $table->integer('stock')->default(0);
+            $table->timestamps();
+            // Definir la llave foránea
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
         });
     }
 
