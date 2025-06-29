@@ -32,8 +32,8 @@
         <div class="container">
             <div class="top-info">
                 <div class="contact-info">
-                    <span><i class="fas fa-phone-alt"></i> +506 2222-3333</span>
-                    <span><i class="fas fa-envelope"></i> info@guarotico.com</span>
+                    <span><i class="fas fa-phone-alt"></i> +506 8544 3529</span>
+                    <span><i class="fas fa-envelope"></i> Superachievercr@gmail.com</span>
                 </div>
                 <div class="social-icons">
                     <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
@@ -73,16 +73,11 @@
                                     <li><hr class="dropdown-divider"></li>
                                 @endif
                             @endisset
-                            <li><a class="dropdown-item" href="#todos">Ver Todos</a></li>
+                            <li><a class="dropdown-item" href="/">Ver Todos</a></li>
                         </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contacto">
-                            <i class="fas fa-envelope"></i> Contacto
-                        </a>
-                    </li>
+                    </li>                    
                      <li class="nav-item">
-                        <a class="nav-link" href="{{ route('seguridad.index') }}">
+                        <a class="nav-link" href="{{ route('login') }}">
                             <i class="fas fa-sign-in-alt"></i> Login
                         </a>
                     </li>
@@ -374,24 +369,31 @@
                 }
             }
             
-            // Checkout
-            checkoutBtn.addEventListener('click', function() {
-                // In a real application, you would send the cart data to the server
-                // For this example, we'll just show a success message and clear the cart
-                
-                // Clear cart
-                cart = [];
-                localStorage.removeItem('cart');
-                updateCartUI();
-                
-                // Hide cart modal
-                const cartModal = bootstrap.Modal.getInstance(document.getElementById('cartModal'));
-                cartModal.hide();
-                
-                // Show success modal
-                const successModal = new bootstrap.Modal(document.getElementById('checkoutSuccessModal'));
-                successModal.show();
-            });
+checkoutBtn.addEventListener('click', function() {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    if (cart.length === 0) {
+        alert('El carrito está vacío');
+        return;
+    }
+    let message = "Hola, quiero pedir los siguientes licores:\n\n";
+
+    cart.forEach(function(item, index) {
+        message += `${index + 1}. ${item.name} - ₡${item.price} x ${item.quantity}\n`;
+    });
+    let phone = '50685443529';
+    let whatsappURL = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappURL, '_blank');
+    cart = [];
+    localStorage.removeItem('cart');
+    updateCartUI();
+    const cartModal = bootstrap.Modal.getInstance(document.getElementById('cartModal'));
+    cartModal.hide();
+    setTimeout(function() {
+        location.reload();
+    }, 500); // 
+});
+
             
             // Contact Form
             const contactForm = document.getElementById('contactForm');

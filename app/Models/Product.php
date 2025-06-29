@@ -14,8 +14,14 @@ class Product extends Model
         'price',
         'image_url',
         'category_id',
-        'category',
+        'is_featured',
+        'stock'
     ];
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 
     /**
      * Formatea el precio con el símbolo de colones
