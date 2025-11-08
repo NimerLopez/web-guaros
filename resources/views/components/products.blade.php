@@ -1,55 +1,83 @@
 @props(['products', 'columns' => 'col-lg-4 col-md-6'])
 
-<div class="row g-4" id="productContainer">
-    @foreach($products as $product)
-        <div class="{{ $columns }} product-item" data-category="{{ $product->category ?? '' }}">
-            <div class="card product-card h-100 border-0 shadow-sm overflow-hidden">
-                <div class="position-relative">
-                    <img src="{{ $product->image_url }}" 
-                         class="card-img-top product-img" 
-                         alt="{{ $product->name }}" 
-                         style="height: 220px; object-fit: cover;">
-                    
-                    @if($product->is_new ?? false)
-                        <span class="position-absolute top-0 end-0 m-2 badge bg-danger">Nuevo</span>
+<div class="products-grid" id="productContainer">
+    @forelse($products as $product)
+        <div class="product-item" data-category="{{ $product->category ?? '' }}">
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <img src="{{ $product->image_url ?? asset('assets/img/default-product.png') }}"
+                         class="product-img"
+                         alt="{{ $product->name }}">
+
+                    @if($product->is_featured ?? false)
+                        <span class="product-badge featured-badge">
+                            <i class="fas fa-star"></i> Destacado
+                        </span>
+                    @endif
+
+                    @if(isset($product->stock) && $product->stock <= 5 && $product->stock > 0)
+                        <span class="product-badge stock-badge low-stock">
+                            ¡Últimas unidades!
+                        </span>
                     @endif
                 </div>
-                
-                <div class="card-body">
+
+                <div class="product-body">
                     @if($product->category_name ?? false)
-                        <div class="d-flex justify-content-between mb-2">
-                            <span class="text-muted">{{ $product->category_name }}</span>
-                            
-                            @if($product->rating ?? false)
-                                <div class="text-warning">
-                                    @for($i = 1; $i <= 5; $i++)
-                                        @if($i <= floor($product->rating))
-                                            <i class="bi bi-star-fill"></i>
-                                        @elseif($i == ceil($product->rating) && $product->rating != floor($product->rating))
-                                            <i class="bi bi-star-half"></i>
-                                        @else
-                                            <i class="bi bi-star"></i>
-                                        @endif
-                                    @endfor
-                                </div>
-                            @endif
+                        <div class="product-category">
+                            <span class="category-badge">{{ $product->category_name }}</span>
                         </div>
-                    @endif              
-                    <h5 class="card-title fw-bold">{{ $product->name }}</h5>
-                    <p class="card-text text-muted">{{ Str::limit($product->description, 100) }}</p>
-                </div>            
-                <div class="card-footer bg-transparent border-top-0">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <span class="fs-4 fw-bold text-primary">₡{{ number_format($product->price, 2) }}</span>
-                        <button class="btn btn-primary rounded-pill px-3 add-to-cart" 
-                                data-id="{{ $product->id }}" 
-                                data-name="{{ $product->name }}" 
-                                data-price="{{ $product->price }}">
-                            <i class="bi bi-cart-plus me-2"></i>Añadir
-                        </button>
+                    @endif
+
+                    <h3 class="product-title">{{ $product->name }}</h3>
+                    <p class="product-description">{{ Str::limit($product->description, 80) }}</p>
+
+                    <div class="product-meta">
+                        <div class="product-price">
+                            <span class="price-symbol">₡</span>
+                            <span class="price-amount">{{ number_format($product->price, 0) }}</span>
+                        </div>
+
+                        @if(isset($product->stock))
+                            <div class="product-stock">
+                                @if($product->stock > 5)
+                                    <i class="fas fa-check-circle"></i> Disponible
+                                @elseif($product->stock > 0)
+                                    <i class="fas fa-exclamation-circle"></i> Stock bajo
+                                @else
+                                    <i class="fas fa-times-circle"></i> Sin stock
+                                @endif
+                            </div>
+                        @endif
                     </div>
+                </div>
+
+                <div class="product-footer">
+                    @if(($product->stock ?? 1) > 0)
+                        <button class="product-add-btn add-to-cart"
+                                data-id="{{ $product->id }}"
+                                data-name="{{ $product->name }}"
+                                data-price="{{ $product->price }}"
+                                data-stock="{{ $product->stock ?? 999 }}">
+                            <i class="fas fa-cart-plus"></i>
+                            <span>Añadir al carrito</span>
+                        </button>
+                    @else
+                        <button class="product-add-btn disabled" disabled>
+                            <i class="fas fa-ban"></i>
+                            <span>No disponible</span>
+                        </button>
+                    @endif
                 </div>
             </div>
         </div>
-    @endforeach
+    @empty
+        <div class="no-products">
+            <div class="no-products-icon">
+                <i class="fas fa-wine-bottle"></i>
+            </div>
+            <h3>No hay productos disponibles</h3>
+            <p>Prueba con otra categoría o vuelve más tarde.</p>
+        </div>
+    @endforelse
 </div>

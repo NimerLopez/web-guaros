@@ -28,6 +28,20 @@ class LoginController extends Controller
     protected $redirectTo = '/home';
 
     /**
+     * Maximum number of attempts to allow.
+     *
+     * @var int
+     */
+    protected $maxAttempts = 10;
+
+    /**
+     * Number of minutes to throttle for.
+     *
+     * @var int
+     */
+    protected $decayMinutes = 1;
+
+    /**
      * Create a new controller instance.
      *
      * @return void

@@ -21,7 +21,7 @@
         </div>
         
         <!-- Filtros mejorados -->
-        <x-category-filters 
+        <x-category-filters
             :categories="$categories"
             activeFilter="{{ request('category', 'all') }}"
         />
