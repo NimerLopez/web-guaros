@@ -2,9 +2,8 @@
     "private": true,
     "type": "module",
     "scripts": {
-        "build": "vite build && php artisan config:cache && php artisan route:cache",
-        "dev": "vite",
-        "vercel-build": "vite build"
+        "build": "vite build",
+        "dev": "vite"
     },
     "devDependencies": {
         "@popperjs/core": "^2.11.6",
