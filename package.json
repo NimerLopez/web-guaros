@@ -3,8 +3,7 @@
     "type": "module",
     "scripts": {
         "build": "vite build",
-        "dev": "vite",
-        "vercel-build": "vite build && cp -r public $VERCEL_OUTPUT/static"
+        "dev": "vite"
     },
     "devDependencies": {
         "@popperjs/core": "^2.11.6",
