@@ -18,7 +18,11 @@
         <link rel="stylesheet" href="{{ asset('assets/css/site.css') }}">
 
         <!-- Vite Assets -->
-        @vite(['resources/css/app.css'])
+        @if(app()->environment('local'))
+            @vite(['resources/css/app.css'])
+        @else
+            <link rel="stylesheet" href="{{ asset('build/assets/app-DfXb58oi.css') }}">
+        @endif
     </head>
     <body>
     <div class="age-verification" id="ageVerification">
@@ -191,7 +195,11 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
     <!-- Vite JavaScript -->
-    @vite(['resources/js/app.js'])
+    @if(app()->environment('local'))
+        @vite(['resources/js/app.js'])
+    @else
+        <script src="{{ asset('build/assets/app-CkTbIjGq.js') }}" defer></script>
+    @endif
 
     </body>
 </html>
